@@ -79,7 +79,7 @@ namespace Incidents.DAL.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -92,6 +92,9 @@ namespace Incidents.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AccountId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Contact");
 
